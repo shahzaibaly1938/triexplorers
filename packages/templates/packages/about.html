@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-full min-h-screen bg-gradient-to-b from-[#e0f7fa] to-[#b2ebf2] py-12 px-4">
+    <div class="max-w-4xl mx-auto bg-white bg-opacity-95 rounded-xl shadow-xl p-8 md:p-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#0088cc] mb-6 text-center">About TriExplorers</h1>
+        <!-- Our Story -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Our Story</h2>
+            <p class="text-[#0b0323]">
+                Founded by passionate travelers, TriExplorers was born from a desire to make luxury travel accessible, seamless, and unforgettable. From humble beginnings, we have grown into a trusted brand, curating unique journeys and experiences for explorers around the globe.
+            </p>
+        </section>
+        <!-- Vision -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Our Vision</h2>
+            <p class="text-[#0b0323]">
+                To inspire and empower people to discover the world in style and comfort. We believe travel should be transformative, luxurious, and tailored to every traveler’s dreams.
+            </p>
+        </section>
+        <!-- Our Squad -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Meet Our Squad</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                <div class="flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO" class="w-24 h-24 rounded-full mb-2 border-4 border-[#5bc0de] shadow">
+                    <div class="text-lg font-semibold text-[#0b0323]">Alex Carter</div>
+                    <div class="text-[#0088cc] text-sm">Founder & CEO</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="COO" class="w-24 h-24 rounded-full mb-2 border-4 border-[#5bc0de] shadow">
+                    <div class="text-lg font-semibold text-[#0b0323]">Maria Lopez</div>
+                    <div class="text-[#0088cc] text-sm">Chief Operations Officer</div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Lead Travel Designer" class="w-24 h-24 rounded-full mb-2 border-4 border-[#5bc0de] shadow">
+                    <div class="text-lg font-semibold text-[#0b0323]">James Lee</div>
+                    <div class="text-[#0088cc] text-sm">Lead Travel Designer</div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose Us -->
+        <section>
+            <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Why Choose TriExplorers?</h2>
+            <ul class="list-disc pl-6 text-[#0b0323] space-y-1">
+                <li>Handpicked luxury experiences and destinations</li>
+                <li>Personalized service from our expert team</li>
+                <li>24/7 support before, during, and after your trip</li>
+                <li>Exclusive partnerships with top hotels and resorts</li>
+                <li>Commitment to making every journey extraordinary</li>
+            </ul>
+        </section>
+    </div>
+</div>
+{% endblock %}

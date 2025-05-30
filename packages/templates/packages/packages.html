@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-full min-h-screen bg-[#e0f7fa] py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#0088cc] mb-8 text-center tracking-tight">Luxury Travel Packages</h1>
+        <!-- Search and Filter Bar -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+            <div class="flex items-center bg-white bg-opacity-90 rounded-full px-4 py-2 w-full md:w-1/2 shadow">
+                <svg class="w-6 h-6 text-[#5bc0de] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input type="text" placeholder="Search luxury packages..." class="bg-transparent outline-none text-[#0088cc] w-full placeholder-[#5bc0de]"/>
+            </div>
+            <div class="flex gap-2">
+                <select class="bg-white bg-opacity-90 text-[#0088cc] border border-[#5bc0de] rounded-full px-4 py-2 shadow focus:outline-none">
+                    <option value="">All Types</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="family">Family</option>
+                    <option value="honeymoon">Honeymoon</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="beach">Beach</option>
+                </select>
+                <select class="bg-white bg-opacity-90 text-[#0088cc] border border-[#5bc0de] rounded-full px-4 py-2 shadow focus:outline-none">
+                    <option value="">All Destinations</option>
+                    <option value="paris">Paris</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="bali">Bali</option>
+                    <option value="switzerland">Switzerland</option>
+                    <option value="egypt">Egypt</option>
+                </select>
+            </div>
+        </div>
+        <!-- Packages Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Package Card 1 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Adventure" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Alpine Adventure</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Experience the thrill of the Swiss Alps with hiking, skiing, and breathtaking views.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Adventure</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package Card 2 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=600&q=80" alt="Family" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Family Fun in Bali</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Enjoy a relaxing family getaway with beaches, culture, and adventure in beautiful Bali.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Family</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package Card 3 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Honeymoon" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Maldives Honeymoon</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Romantic escapes on turquoise waters, private villas, and unforgettable sunsets.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Honeymoon</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package Card 4 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Cultural" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Egyptian Wonders</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Explore the pyramids, cruise the Nile, and discover ancient history in Egypt.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Cultural</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package Card 5 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beach" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Beach Paradise</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Relax on pristine beaches, swim in crystal-clear waters, and soak up the sun.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Beach</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Package Card 6 -->
+            <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
+                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80" alt="Adventure" class="h-48 w-full object-cover">
+                <div class="p-6 flex flex-col flex-1">
+                    <h2 class="text-2xl font-bold text-[#0088cc] mb-2">Safari Expedition</h2>
+                    <p class="text-[#0b0323] mb-4 flex-1">Go on a wild safari, see exotic animals, and experience the thrill of Africa.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#5bc0de] font-semibold">Adventure</span>
+                        <button class="bg-[#0088cc] hover:bg-[#5bc0de] text-white px-4 py-2 rounded-full font-semibold transition">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
