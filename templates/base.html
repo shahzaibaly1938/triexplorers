@@ -4,21 +4,64 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'dist/style.css' %}">
     <title>{% block title %}My amazing site{% endblock %}</title>
-
 </head>
 
 <body>
-    <div class="w-full h-[200px] bg-gray-500" id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li class="underline decoration-sky-500"><a href="/">Home</a></li>
-            <li><a href="/blog/">Blog</a></li>
-        </ul>
-        {% endblock %}
-    </div>
+    <!-- Classy & Minimal Header/Navbar -->
+    <header class="w-full bg-[#0b0323] shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="/" class="flex items-center gap-2 text-3xl font-bold text-[#f2f2f3] tracking-wide">
+                <!-- SVG Logo -->
+                <span>
+                    <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="22" fill="#0088cc" stroke="#0b0323" stroke-width="4"/>
+                        <path d="M24 10L34 38H14L24 10Z" fill="#f2f2f3" stroke="#0b0323" stroke-width="2"/>
+                    </svg>
+                </span>
+                TriExplorers
+            </a>
+           
+            <nav>
+                <ul id="nav-menu" class="flex flex-col md:flex-row gap-6 md:gap-8 text-lg font-semibold absolute md:static top-20 left-0 w-full md:w-auto bg-[#0b0323] md:bg-transparent p-6 md:p-0 z-50 hidden md:flex">
+                    <li>
+                        <a href="" class="text-[#f2f2f3] hover:text-[#5bc0de] transition">Packages</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-[#f2f2f3] hover:text-[#5bc0de] transition">Hotels</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-[#f2f2f3] hover:text-[#5bc0de] transition">About</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-[#f2f2f3] hover:text-[#5bc0de] transition">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Hamburger Button (Mobile) -->
+            <button id="nav-toggle" class="md:hidden text-[#f2f2f3] focus:outline-none" aria-label="Open navigation">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+                </svg>
+            </button>
+        </div>
+    </header>
 
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+    <script>
+        // Responsive Navbar Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+        // Optional: Close menu when clicking a link (mobile)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth < 768) navMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
