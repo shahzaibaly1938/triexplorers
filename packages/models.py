@@ -30,7 +30,7 @@ class Day(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.day_name} - {self.day_place}'
+        return f'{self.day_name} - {for_list(self.day_place.all())}'
 
 class Transport(models.Model):
     transport_name = models.CharField(max_length=100)
@@ -49,6 +49,7 @@ class Package(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     package_image = models.ImageField(upload_to='package_images', blank=True, null=True)
     package_image2 = models.ImageField(upload_to='package_images', blank=True, null=True)
+    package_description = models.TextField(default='')
     max_person = models.PositiveIntegerField()
     places = models.ManyToManyField(Place)
     total_days = models.PositiveIntegerField()
@@ -58,4 +59,12 @@ class Package(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.package_name
+        return f"{self.package_name}"
+    
+
+
+def for_list(items):
+    my_list = []
+    for item in items:
+        my_list.append(item)
+    return my_list
