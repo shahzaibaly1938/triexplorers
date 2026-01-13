@@ -15,31 +15,31 @@
                         <path d="M16 2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
                         <path d="M16 2v4H8V2"/>
                     </svg>
-                    <span class="text-[#0b0323]">+1 234 567 890</span>
+                    <span class="text-[#0b0323]">+92 3498113515</span>
                 </div>
                 <div class="flex items-center mb-2">
                     <svg class="w-6 h-6 text-[#0088cc] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M21 10.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4.5"/>
                         <path d="M3 10.5l9 6 9-6"/>
                     </svg>
-                    <span class="text-[#0b0323]">info@triexplorers.com</span>
+                    <span class="text-[#0b0323]">triexplorers001@gmail.com</span>
                 </div>
                 <div class="flex items-center">
-                    <svg class="w-6 h-6 text-[#0088cc] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <svg class="w-10 h-10 text-[#0088cc] mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M17 20H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2z"/>
                         <path d="M7 10h10"/>
                     </svg>
-                    <span class="text-[#0b0323]">123 Luxury Ave, Suite 100, New York, NY</span>
+                    <span class="text-[#0b0323]">TriExplorers Travel and Tours Office, Kazmi Bazar, near SCO Office, Skardu, 16100, Pakistan</span>
                 </div>
             </div>
             <div class="flex gap-4 mt-4">
-                <a href="#" class="text-[#0088cc] hover:text-[#5bc0de] transition">Facebook</a>
-                <a href="#" class="text-[#0088cc] hover:text-[#5bc0de] transition">Instagram</a>
-                <a href="#" class="text-[#0088cc] hover:text-[#5bc0de] transition">Twitter</a>
+                <a href="https://www.facebook.com/triexplorers/" target="_blank" class="text-[#0088cc] hover:text-[#5bc0de] transition">Facebook</a>
+                <a href="https://www.instagram.com/triexplorers/#" target="_blank" class="text-[#0088cc] hover:text-[#5bc0de] transition">Instagram</a>
+                <a href="https://x.com/TriExplorers" target="_blank" class="text-[#0088cc] hover:text-[#5bc0de] transition">X</a>
             </div>
         </div>
         <!-- Contact Form -->
-        <form class="flex-1 space-y-6">
+        <form id="contactForm" class="flex-1 space-y-6">
             <div>
                 <label class="block text-[#0b0323] font-semibold mb-1" for="name">Name</label>
                 <input id="name" name="name" type="text" required class="w-full px-4 py-2 rounded-lg border border-[#b2ebf2] focus:border-[#0088cc] bg-[#e0f7fa] text-[#0b0323] outline-none"/>
@@ -54,6 +54,42 @@
             </div>
             <button type="submit" class="w-full bg-[#0088cc] hover:bg-[#5bc0de] text-white font-semibold py-3 rounded-lg shadow transition">Send Message</button>
         </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value || '';
+        const email = document.getElementById('email')?.value || '';
+        const messageText = document.getElementById('message')?.value || '';
+        const phone = '923498113515'; // destination WhatsApp number (Pakistan)
+
+        const message = `New contact submission from TriExplorers:\n\nName: ${name}\nEmail: ${email}\nMessage: ${messageText}`;
+        const waUrl = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+
+        // Open WhatsApp in a new tab/window
+        window.open(waUrl, '_blank');
+
+        // If the form has an action, submit it to server as well; otherwise reset the form
+        if (form.getAttribute('action')) {
+            // remove the submit handler so we don't loop, then submit
+            form.removeEventListener('submit', arguments.callee);
+            form.submit();
+        } else {
+            form.reset();
+            // optional: show a brief confirmation
+            const original = document.activeElement;
+            alert('Your message was prepared and WhatsApp opened.');
+            if (original) original.focus();
+        }
+    });
+});
+</script>
+
     </div>
 </div>
 {% endblock %}

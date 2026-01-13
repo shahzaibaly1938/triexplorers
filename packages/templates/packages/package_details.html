@@ -13,7 +13,7 @@
                 </svg>
                 <span class="font-semibold">Back to Packages</span>
             </a>
-            <a href="#" class="bg-[#0088cc] hover:bg-[#5bc0de] text-white font-semibold px-6 py-2 rounded-full shadow transition">Book Now</a>
+            <a href="#" id="bookNowBtn" class="bg-[#0088cc] hover:bg-[#5bc0de] text-white font-semibold px-6 py-2 rounded-full shadow transition">Book Now</a>
         </div>
         <!-- Package Name & Images -->
         <div class="flex flex-col md:flex-row gap-8 mb-8">
@@ -30,10 +30,18 @@
             </div>
             <div class="flex-1 flex flex-col gap-4">
                 <div class="w-full aspect-[16/9] rounded-xl overflow-hidden shadow">
+                    {% if package.package_image %}
+                    <img src="{{ package.package_image.url }}" alt="{{ package.package_image.url  }}" class="object-cover w-full h-full" />
+                    {% else %}
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Package Image 1" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
                 <div class="w-full aspect-[16/9] rounded-xl overflow-hidden shadow">
+                    {% if package.package_image2 %}
+                    <img src="{{ package.package_image2.url }}" alt="{{ package.package_name }}" class="object-cover w-full h-full" />
+                    {% else %}
                     <img src="https://images.unsplash.com/photo-1465156799763-2c087c332922?auto=format&fit=crop&w=600&q=80" alt="Package Image 2" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -46,15 +54,29 @@
                 {% endfor %}
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                {% for place in package.places.all %}
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Place 1" class="object-cover w-full h-full" />
+                    {% if place.place_image %}
+                    <img src="{{ place.place_image.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% else %}
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Place 2" class="object-cover w-full h-full" />
+                    {% if place.place_image %}
+                   <img src="{{ place.place_image2.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% else %}
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Place 3" class="object-cover w-full h-full" />
+                    {% if place.place_image %}
+                    <img src="{{ place.place_image3.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% else %}
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
         </div>
         <!-- Transport -->
@@ -66,12 +88,22 @@
                 {% endfor %}
             </div>
             <div class="grid grid-cols-2 gap-4 mt-2">
+                {% for transport_item in package.transport.all %}
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
-                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="Transport 1" class="object-cover w-full h-full" />
+                    {% if transport_item.transport_image %}
+                    <img src="{{ transport_item.transport_image.url }}" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
+                    {% else %}
+                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
-                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="Transport 2" class="object-cover w-full h-full" />
+                    {% if transport_item.transport_image %}
+                    <img src="{{ transport_item.transport_image2.url }}" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
+                    {% else %}
+                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
+                    {% endif %}
                 </div>
+                {% endfor %}
             </div>
         </div>
         <!-- Itinerary -->
@@ -85,11 +117,17 @@
                         <div class="text-[#0b0323]">{{ day.day_itinerary }}</div>
                     </div>
                     <div class="flex gap-2 items-center">
-                        <div class="aspect-[4/3] w-28 rounded-lg overflow-hidden shadow">
-                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=400&q=80" alt="Itinerary Image 1" class="object-cover w-full h-full" />
-                        </div>
-                        <div class="aspect-[4/3] w-28 rounded-lg overflow-hidden shadow">
-                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Itinerary Image 2" class="object-cover w-full h-full" />
+                        <div class="flex gap-2 items-center">
+                            {% if day.day_image %}
+                            <div class="aspect-[4/3] w-28 rounded-lg overflow-hidden shadow">
+                                <img src="{{ day.day_image.url }}" alt="Day image" class="object-cover w-full h-full" />
+                            </div>
+                            {% endif %}
+                            {% if day.day_image2 %}
+                            <div class="aspect-[4/3] w-28 rounded-lg overflow-hidden shadow">
+                                <img src="{{ day.day_image2.url }}" alt="Day image 2" class="object-cover w-full h-full" />
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -103,4 +141,23 @@
         </div>
     </div>
 </div>
-{% endblock %}
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const btn = document.getElementById('bookNowBtn');
+                if (!btn) return;
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const name = "{{ package.package_name|escapejs }}";
+                    const price = "{{ package.total_price|escapejs }}";
+                    const days = "{{ package.total_days|escapejs }}";
+                    const max = "{{ package.max_person|escapejs }}";
+                    const places = "{% for p in package.places.all %}{{ p }}{% if not forloop.last %}, {% endif %}{% endfor %}";
+                    const transports = "{% for t in package.transport.all %}{{ t }}{% if not forloop.last %}, {% endif %}{% endfor %}";
+                    const phone = "923498113515"; // destination number (Pakistan)
+                    const message = `Hi, I would like to book this package:\n\nPackage: ${name}\nPrice: ${price} PKR\nDuration: ${days} days\nMax persons: ${max}\nPlaces: ${places}\nTransport: ${transports}`;
+                    const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+                    window.open(url, '_blank');
+                });
+            });
+            </script>
+        {% endblock %}

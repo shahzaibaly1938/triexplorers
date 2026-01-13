@@ -10,35 +10,32 @@
     <!-- Classy & Minimal Header/Navbar -->
     <header class="w-full bg-white bg-opacity-90 shadow-md border-b border-[#b2ebf2]">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="/" class="flex items-center gap-2 text-3xl font-bold text-[#0088cc] tracking-wide">
+            <a href="/" class="flex items-center gap-2 text-3xl font-bold text-gray-800 tracking-wide">
                 <!-- SVG Logo -->
                 <span>
-                    <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="24" cy="24" r="22" fill="#0088cc" stroke="#0b0323" stroke-width="4"/>
-                        <path d="M24 10L34 38H14L24 10Z" fill="#f2f2f3" stroke="#0b0323" stroke-width="2"/>
-                    </svg>
+                    <img src="{% static 'images/logo.png' %}" alt="Triexplorers Logo" class="h-20 w-15 mt-4"/>
                 </span>
-                TriExplorers
+                <span>TriExplorers</span>
             </a>
            
             <nav>
                 <ul id="nav-menu" class=" flex-col md:flex-row gap-6 md:gap-8 text-lg font-semibold absolute md:static top-20 left-0 w-full md:w-auto bg-white bg-opacity-95 md:bg-transparent p-6 md:p-0 z-50 hidden md:flex border-b md:border-0 border-[#b2ebf2] md:shadow-none shadow">
                     <li>
-                        <a href="{% url 'packages' %}" class="text-[#0088cc] hover:text-[#5bc0de] transition">Packages</a>
+                        <a href="{% url 'packages' %}" class="text-gray-800 hover:text-[#5bc0de] transition">Packages</a>
                     </li>
                     <li>
-                        <a href="{% url 'hotels' %}" class="text-[#0088cc] hover:text-[#5bc0de] transition">Hotels</a>
+                        <a href="{% url 'hotels' %}" class="text-gray-800 hover:text-[#5bc0de] transition">Hotels</a>
                     </li>
                     <li>
-                        <a href="{% url 'about' %}" class="text-[#0088cc] hover:text-[#5bc0de] transition">About</a>
+                        <a href="{% url 'about' %}" class="text-gray-800 hover:text-[#5bc0de] transition">About</a>
                     </li>
                     <li>
-                        <a href="{% url 'contact' %}" class="text-[#0088cc] hover:text-[#5bc0de] transition">Contact</a>
+                        <a href="{% url 'contact' %}" class="text-gray-800 hover:text-[#5bc0de] transition">Contact</a>
                     </li>
                 </ul>
             </nav>
             <!-- Hamburger Button (Mobile) -->
-            <button id="nav-toggle" class="md:hidden text-[#0088cc] focus:outline-none" aria-label="Open navigation">
+            <button id="nav-toggle" class="md:hidden text-gray-800 focus:outline-none" aria-label="Open navigation">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
                 </svg>

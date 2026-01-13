@@ -10,19 +10,24 @@ def home(request):
 
 def packages(request):
     packages = Package.objects.all()
-    if request.method == 'POST':
-        query = request.POST.get('search', None)
-        type = request.POST.get('type', None)
-        destination = request.POST.get('destination', None)
-        if type:
-            packages.filter(package_type=type)
-        if destination:
-            packages.filter(Q(places__icontains = destination))
-        if query:
-            packages.filter(Q(package_name__icontains = query) | Q(package_description__icontains = query))
-        
-    
-    return render(request, 'packages/packages.html', {'packages':packages})
+    # support both GET and POST filters (template currently posts form)
+    data = request.POST if request.method == 'POST' else request.GET
+    query = data.get('search', None)
+    p_type = data.get('type', None)
+    destination = data.get('destination', None)
+
+    if p_type:
+        # package_type is a FK to Package_type; match by name (case-insensitive)
+        packages = packages.filter(package_type__type_name__iexact=p_type)
+    if destination:
+        # places is a M2M to Place; filter by place name
+        packages = packages.filter(places__place_name__icontains=destination)
+    if query:
+        packages = packages.filter(Q(package_name__icontains=query) | Q(package_description__icontains=query))
+
+    packages = packages.distinct()
+
+    return render(request, 'packages/packages.html', {'packages': packages})
 
 def package_details(request, id):
     package = Package.objects.get(id=id)

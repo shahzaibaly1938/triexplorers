@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",
-    "tailwindcss": "^4.1.8"
+    "@tailwindcss/vite": "^4.1.18",
+    "tailwindcss": "^4.1.18"
   },
   "scripts": {
     "watch:css": "npx @tailwindcss/cli -i ./static/src/style.css -o ./static/dist/style.css --watch"
