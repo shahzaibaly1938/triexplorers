@@ -58,22 +58,19 @@
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
                     {% if place.place_image %}
                     <img src="{{ place.place_image.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
-                    {% else %}
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    
                     {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
                     {% if place.place_image %}
                    <img src="{{ place.place_image2.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
-                    {% else %}
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                   
                     {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
                     {% if place.place_image %}
                     <img src="{{ place.place_image3.url }}" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
-                    {% else %}
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ place.place_name }}" class="object-cover w-full h-full" />
+                    
                     {% endif %}
                 </div>
                 {% endfor %}
@@ -92,15 +89,11 @@
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
                     {% if transport_item.transport_image %}
                     <img src="{{ transport_item.transport_image.url }}" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
-                    {% else %}
-                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
                     {% endif %}
                 </div>
                 <div class="aspect-[4/3] rounded-lg overflow-hidden shadow w-full">
                     {% if transport_item.transport_image %}
                     <img src="{{ transport_item.transport_image2.url }}" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
-                    {% else %}
-                    <img src="https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?auto=format&fit=crop&w=400&q=80" alt="{{ transport_item.transport_name }}" class="object-cover w-full h-full" />
                     {% endif %}
                 </div>
                 {% endfor %}

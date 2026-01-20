@@ -25,14 +25,7 @@
                     <option value="cultural">Cultural</option>
                     <option value="beach">Beach</option>
                 </select>
-                <select name="destination" class="bg-white bg-opacity-90 text-[#0088cc] border border-[#5bc0de] rounded-full px-4 py-2 shadow focus:outline-none">
-                    <option value="">All Destinations</option>
-                    <option value="paris">Paris</option>
-                    <option value="maldives">Maldives</option>
-                    <option value="bali">Bali</option>
-                    <option value="switzerland">Switzerland</option>
-                    <option value="egypt">Egypt</option>
-                </select>
+              
                 <button type="submit" class="bg-[#0088cc] hover:bg-[#5bc0de] text-white font-semibold px-6 py-2 rounded-full shadow transition">
                     Apply Filter & Search
                 </button>
@@ -49,8 +42,7 @@
             <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
                 {% if package.package_image %}
                 <img src="{{ package.package_image.url }}" alt="{{ package.package_name }}" class="h-48 w-full object-cover">
-                {% else %}
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ package.package_name }}" class="h-48 w-full object-cover">
+               
                 {% endif %}
                 <div class="p-6 flex flex-col flex-1">
                     <h2 class="text-2xl font-bold text-[#0088cc] mb-2">{{package.package_name}}</h2>

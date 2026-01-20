@@ -36,8 +36,7 @@
             <div class="bg-white bg-opacity-95 rounded-xl shadow-xl overflow-hidden border border-[#5bc0de] flex flex-col hover:scale-105 transition-transform duration-200">
                 {% if hotel.hotel_image %}
                 <img src="{{ hotel.hotel_image.url }}" alt="{{ hotel.hotel_name }}" class="h-48 w-full object-cover">
-                {% else %}
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="{{ hotel.hotel_name }}" class="h-48 w-full object-cover">
+               
                 {% endif %}
                 <div class="p-6 flex flex-col flex-1">
                     <h2 class="text-2xl font-bold text-[#0088cc] mb-2">{{ hotel.hotel_name }}</h2>
