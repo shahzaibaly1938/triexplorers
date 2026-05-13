@@ -34,6 +34,7 @@ class Day(models.Model):
 
 class Transport(models.Model):
     transport_name = models.CharField(max_length=100)
+    transport_price = models.CharField(max_length=100, default='0', blank=True, null=True)
     transport_image = models.ImageField(upload_to='transport_images/',blank=True, null=True)
     transport_image2 = models.ImageField(upload_to='transport_images/',blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

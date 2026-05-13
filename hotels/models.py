@@ -13,6 +13,7 @@ class Hotel_type(models.Model):
 class Hotel(models.Model):
     hotel_name = models.CharField(max_length=100)
     hotel_type = models.ForeignKey(Hotel_type, related_name='hotels' , on_delete=models.CASCADE)
+    hotel_price = models.CharField(max_length=100, default='0', blank=True, null=True)
     hotel_image = models.ImageField(upload_to='hotel_images/', blank=True, null=True)
     hotel_image2 = models.ImageField(upload_to='hotel_images/', blank=True, null=True)
     hotel_image3 = models.ImageField(upload_to='hotel_images/', blank=True, null=True)
